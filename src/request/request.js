@@ -1,6 +1,6 @@
-var isBrowser = typeof window !== 'undefined';
+var isNode = typeof navigator === 'undefined';
 
 // FIXME: how to do conditional loading this with ES6 modules?
-module.exports = isBrowser ?
-    require('./request.browser') :
-    require('./request.node');
+module.exports = isNode ?
+    require('./request.node') :
+    require('./request.polyfill');
